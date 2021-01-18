@@ -60,6 +60,9 @@ New-Alias -Name bl -Value Get-ListLocalBranches -Force -Option AllScope
 function Get-ListRemoteBranches { & git br }
 New-Alias -Name bl -Value Get-ListRemoteBranches -Force -Option AllScope
 
+function Get-ListRemoteBranches { & git rev-parse --abbrev-ref HEAD }
+New-Alias -Name cb -Value Get-ListRemoteBranches -Force -Option AllScope
+
 # Source profile
 function rf() {
     . $PROFILE.CurrentUserAllHosts
