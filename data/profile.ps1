@@ -25,6 +25,7 @@ function ntu () { npm run test:update-snapshot }
 # Edit configs
 function cfc () { code $profile.CurrentUserAllHosts }
 function cfh () { code "C:\Windows\System32\drivers\etc\hosts" }
+function cfcw () { code $PSScriptRoot\Modules\work\work.psm1 }
 
 # Git aliases
 function Get-GitStatus { & git st }
