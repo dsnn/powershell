@@ -1,1 +1,0 @@
-cmd /c mklink /D C:\Users\ca\Documents\WindowsPowerShell C:\stuff\powershell\data
