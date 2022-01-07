@@ -1,21 +1,35 @@
-if (-not (Get-Module -ListAvailable -Name PowerShellGet)) {
-    Write-Host "PowerShellGet not found, installing..."
-    Install-Module -Name PowerShellGet -Force
-}
+function install-deps() { 
+#     Install-Module -Name PowerShellGet -Force
+#     Install-Module PSReadLine -AllowPrerelease -Force
+#     PowerShellGet\Install-Module posh-git -Scope CurrentUser -Force
+#     Install-Module -Name z 
 
-if (-not (Get-Module -ListAvailable -Name PSReadLine)) {
-    Write-Host "PSReadLine not found, installing..."
-    Install-Module PSReadLine -AllowPrerelease -Force
-}
+    if (-not (Get-Module -ListAvailable -Name PowerShellGet)) {
+        Write-Host "PowerShellGet not found, installing..."
+    } else {
+        Write-Host "PowerShellGet found, skipping..."
+    }
 
-if (-not (Get-Module -ListAvailable -Name posh-git)) {
-    Write-Host "posh-git not found, installing..."
-    PowerShellGet\Install-Module posh-git -Scope CurrentUser -Force
-}
+    if (-not (Get-Module -ListAvailable -Name PSReadLine)) {
+        Write-Host "PSReadLine not found, installing..."
+        Install-Module PSReadLine -AllowPrerelease -Force
+    } else {
+        Write-Host "PSReadLine found, skipping..."
+    }
 
-if (-not (Get-Module -ListAvailable -Name z)) {
-    Write-Host "z not found, installing..."
-    Install-Module -Name z 
+    if (-not (Get-Module -ListAvailable -Name posh-git)) {
+        Write-Host "posh-git not found, installing..."
+        PowerShellGet\Install-Module posh-git -Scope CurrentUser -Force
+    } else {
+        Write-Host "posh-git found, skipping..."
+    }
+
+    if (-not (Get-Module -ListAvailable -Name z)) {
+        Write-Host "z not found, installing..."
+        Install-Module -Name z 
+    } else {
+        Write-Host "z found, skipping..."
+    }
 }
 
 if (Get-Module -ListAvailable -Name PSReadLine) {
@@ -42,7 +56,6 @@ if (Get-Module -ListAvailable -Name home) {
 function which() { & get-command $args }
 
 # Navigation aliases
-
 function l() { ls }
 function ..() { cd ..}
 function ...() { cd ../..}

@@ -1,2 +1,5 @@
-data/Modules/work
-data/Modules/home
+Modules/work
+Modules/home
+Modules/posh-git
+Modules/PSReadLine
+Modules/z
