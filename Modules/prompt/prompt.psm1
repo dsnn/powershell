@@ -1,7 +1,7 @@
 #requires -Version 2 -Modules posh-git
 
-$global:GitPromptSettings.BeforeText = ' '
-$global:GitPromptSettings.AfterText  = ''
+# $global:GitPromptSettings.BeforeText = ' '
+# $global:GitPromptSettings.AfterText  = ''
 
 function global:prompt {
     $PwdPath = Split-Path -Path $pwd -Leaf
